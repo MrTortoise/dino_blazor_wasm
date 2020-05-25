@@ -1,0 +1,50 @@
+﻿@page "/games"
+@using Microsoft.AspNetCore.SignalR.Client
+@using System.Linq.Expressions
+@using System.Runtime.Serialization.Formatters.Binary
+@inject NavigationManager NavigationManager
+
+<h1>Running Games</h1>
+
+<div hidden="@(!IsConnected)">connecting to server ...</div>
+
+<ul>
+    @foreach (var game in games)
+    {
+        <li>@game</li>
+    }
+</ul>
+
+<div class="form-group">
+    <label>
+        Game Name:<input @bind="gameName" />
+    </label>
+</div>
+
+<button @onclick="GameListUpdate" disabled="@(!IsConnected)">Create Game</button>
+
+@code
+{
+    bool IsConnected => hubConnection.State == HubConnectionState.Connected;
+    private HubConnection hubConnection;
+    private List<string> games = new List<string>();
+    private string gameName;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        hubConnection = new HubConnectionBuilder()
+            .WithUrl(NavigationManager.ToAbsoluteUri("/gamesHub"))
+            .Build();
+
+        hubConnection.On<string>("GameListUpdate", (gameName) =>
+        {
+            games.Add(gameName);
+            StateHasChanged();
+        });
+
+        await hubConnection.StartAsync();
+    }
+
+    Task GameListUpdate() => hubConnection.SendAsync("GameListUpdate", gameName);
+}

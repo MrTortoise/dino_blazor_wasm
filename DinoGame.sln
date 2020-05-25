@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DinoGame.Spec", "DinoGame.Spec\DinoGame.Spec.csproj", "{A9D3E184-E700-436F-843A-28DB8D110099}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinoGame.Server", "DinoGame\Server\DinoGame.Server.csproj", "{ABE5EC18-AC2D-449D-87AD-00AB02521ABF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinoGame.Client", "DinoGame\Client\DinoGame.Client.csproj", "{503522A6-6392-4146-90DE-C94460423DE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinoGame.Shared", "DinoGame\Shared\DinoGame.Shared.csproj", "{1A9F34F2-31DE-4DED-AD43-2DE1818F9820}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9D3E184-E700-436F-843A-28DB8D110099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9D3E184-E700-436F-843A-28DB8D110099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9D3E184-E700-436F-843A-28DB8D110099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9D3E184-E700-436F-843A-28DB8D110099}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABE5EC18-AC2D-449D-87AD-00AB02521ABF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABE5EC18-AC2D-449D-87AD-00AB02521ABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABE5EC18-AC2D-449D-87AD-00AB02521ABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABE5EC18-AC2D-449D-87AD-00AB02521ABF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{503522A6-6392-4146-90DE-C94460423DE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{503522A6-6392-4146-90DE-C94460423DE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{503522A6-6392-4146-90DE-C94460423DE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{503522A6-6392-4146-90DE-C94460423DE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A9F34F2-31DE-4DED-AD43-2DE1818F9820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A9F34F2-31DE-4DED-AD43-2DE1818F9820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A9F34F2-31DE-4DED-AD43-2DE1818F9820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A9F34F2-31DE-4DED-AD43-2DE1818F9820}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B5EFF7FE-621B-4A03-A82B-2B06E417AC0B}
+	EndGlobalSection
+EndGlobal
