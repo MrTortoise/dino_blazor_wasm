@@ -9,7 +9,7 @@
 <div hidden="@IsConnected">connecting to server ...</div>
 
 <ul>
-    @foreach (var game in games)
+    @foreach (var game in _games)
     {
         <li>@game</li>
     }
@@ -17,7 +17,7 @@
 
 <div class="form-group">
     <label>
-        Game Name:<input @bind="gameName" />
+        Game Name:<input @bind="_gameName" />
     </label>
 </div>
 
@@ -25,30 +25,30 @@
 
 @code
 {
-    bool IsConnected => hubConnection.State == HubConnectionState.Connected;
-    private HubConnection hubConnection;
-    private List<string> games = new List<string>();
-    private string gameName;
+    bool IsConnected => _hubConnection.State == HubConnectionState.Connected;
+    private HubConnection _hubConnection;
+    private readonly List<string> _games = new List<string>();
+    private string _gameName;
 
     protected override async Task OnInitializedAsync()
     {
 
-        hubConnection = new HubConnectionBuilder()
+        _hubConnection = new HubConnectionBuilder()
             .WithUrl(NavigationManager.ToAbsoluteUri("/gamesHub"))
             .Build();
 
-        hubConnection.On<string>("GameListUpdate", (gameName) =>
+        _hubConnection.On<string>("GameListUpdate", (gameName) =>
         {
-            games.Add(gameName);
+            _games.Add(gameName);
             StateHasChanged();
         });
 
-        await hubConnection.StartAsync();
+        await _hubConnection.StartAsync();
     }
 
     async Task GameListUpdate()
     {
-        await hubConnection.SendAsync("GameListUpdate", gameName);
-        gameName = string.Empty;
+        await _hubConnection.SendAsync("GameListUpdate", _gameName);
+        _gameName = string.Empty;
     }
 }
