@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore -s https://nuget.pkg.github.com/DinoRoar/index.json -s https://api.nuget.org/v3/index.json
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
