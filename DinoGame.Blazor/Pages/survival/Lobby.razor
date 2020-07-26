@@ -1,0 +1,50 @@
+﻿@page "/survival/lobby"
+
+<h3>Lobby</h3>
+
+<EditForm Model="@createGameModel" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    
+    <p>
+        <label>
+            Game Name:
+            <InputText @bind-Value="createGameModel.GameName" />
+        </label>
+    </p>
+    
+    <p>
+        <label>
+            Board Size:
+            <InputNumber @bind-Value="createGameModel.BoardSize" />
+        </label>
+    </p>
+    
+    <p>
+        <label>
+            Number of Herbivores:
+            <InputNumber @bind-Value="createGameModel.NumberOfHerbivores" />
+        </label>
+    </p>
+    
+    <p>
+        <label>
+            Number of Carnivores:
+            <InputNumber @bind-Value="createGameModel.NumberOfCarnivores" />
+        </label>
+    </p>
+    
+    <button type="submit">Create Game</button>
+
+</EditForm>
+
+@code {
+
+    private CreateGameModel createGameModel = new CreateGameModel();
+
+    private void OnValidSubmit()
+    {
+        Console.WriteLine($"{createGameModel.GameName}, {createGameModel.BoardSize}, {createGameModel.NumberOfHerbivores}, {createGameModel.NumberOfCarnivores}");
+    }
+
+}
